@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Add User</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <style>
+        /* Custom styles for error messages */
+        .error {
+            color: red;  /* Set error message color to red */
+            font-size: 0.9em;  /* Adjust font size */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Add User</h1>
+        <form th:action="@{/add}" th:object="${user}" method="post" id="userForm" novalidate>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter last name" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" placeholder="Enter phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" id="address" th:field="*{address}" placeholder="Enter address" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
